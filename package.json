@@ -1,6 +1,6 @@
 {
   "name": "@youxian/cli",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.2",
   "description": "cli to build project made by @youxian",
   "keywords": [
     "cli",
