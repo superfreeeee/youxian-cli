@@ -1,6 +1,6 @@
 {
   "name": "@youxian/cli",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "cli to build project made by @youxian",
   "keywords": [
     "cli",
@@ -13,10 +13,12 @@
     "yx-cli": "bin/yx-cli"
   },
   "directories": {
+    "bin": "bin",
     "lib": "lib",
     "templates": "templates"
   },
   "files": [
+    "bin",
     "lib",
     "templates"
   ],
