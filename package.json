@@ -1,0 +1,42 @@
+{
+  "name": "@youxian/cli",
+  "version": "0.0.1-alpha.0",
+  "description": "cli to build project made by @youxian",
+  "keywords": [
+    "cli",
+    "youxian"
+  ],
+  "author": "superfree <superfreeeee@gmail.com>",
+  "homepage": "https://github.com/superfreeeee/youxian-cli#readme",
+  "license": "MIT",
+  "bin": {
+    "yx-cli": "bin/yx-cli"
+  },
+  "directories": {
+    "lib": "lib",
+    "templates": "templates"
+  },
+  "files": [
+    "lib",
+    "templates"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superfreeeee/youxian-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/superfreeeee/youxian-cli/issues"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "clear": "^0.1.0",
+    "commander": "^8.2.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.1.5",
+    "ora": "^6.0.1",
+    "prettier": "^2.4.1"
+  }
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const { program } = require('commander');
+const path = require('path');
+
+const { readPackageJson } = require('../lib/config');
+const createProject = require('../lib/create');
+
+// 脚手架 package.json 配置项
+const packageJsonConfig = readPackageJson(path.resolve(__dirname, '..'));
+const currentVersion = `v${packageJsonConfig.version || 'unknown'}`;
+
+/**
+ * Commander setting
+ */
+program.version(currentVersion, '-v, --version').usage('<target-path>');
+program.parse();
+
+// input params parse
+const relativePath = program.args[0] || '.';
+const projectName = relativePath === '.' ? path.basename(path.resolve('.')) : relativePath;
+const targetDir = path.resolve('.', relativePath);
+
+createProject({ currentVersion, relativePath, projectName, targetDir });

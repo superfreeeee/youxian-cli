@@ -1,0 +1,5 @@
+[
+  { "name": "原生项目(HTML+CSS+JS)", "value": "origin" },
+  { "name": "前端应用(React+TS+Webpack)", "value": "application" },
+  { "name": "三方库(TS+Babel)", "value": "library" }
+]
