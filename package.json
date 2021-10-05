@@ -12,6 +12,9 @@
   "bin": {
     "yx-cli": "bin/yx-cli"
   },
+  "scripts": {
+    "reinstall": "rm -rf node_modules && yarn"
+  },
   "directories": {
     "bin": "bin",
     "lib": "lib",
@@ -38,7 +41,7 @@
     "commander": "^8.2.0",
     "figlet": "^1.5.2",
     "inquirer": "^8.1.5",
-    "ora": "^6.0.1",
+    "ora": "^5.4.1",
     "prettier": "^2.4.1"
   }
 }
