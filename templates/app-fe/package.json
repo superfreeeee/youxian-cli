@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "reinstall": "rm -rf node_modules && yarn"
   },
   "dependencies": {
     "@youxian/utils": "^0.0.2",
