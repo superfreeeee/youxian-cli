@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@*": ["./src/*"]
+    },
+    "target": "es5",
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "lib",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2015"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "src/**/__tests__/**"]
+}
