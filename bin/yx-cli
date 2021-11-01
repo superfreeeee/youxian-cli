@@ -8,12 +8,12 @@ const createProject = require('../lib/create');
 
 // 脚手架 package.json 配置项
 const packageJsonConfig = readPackageJson(path.resolve(__dirname, '..'));
-const currentVersion = `v${packageJsonConfig.version || 'unknown'}`;
+const version = `v${packageJsonConfig.version || '0.0.0'}`;
 
 /**
  * Commander setting
  */
-program.version(currentVersion, '-v, --version').usage('<target-path>');
+program.version(version, '-v, --version').usage('<target-path>');
 program.parse();
 
 // input params parse
@@ -21,4 +21,4 @@ const relativePath = program.args[0] || '.';
 const projectName = relativePath === '.' ? path.basename(path.resolve('.')) : relativePath;
 const targetDir = path.resolve('.', relativePath);
 
-createProject({ currentVersion, relativePath, projectName, targetDir });
+createProject({ version, relativePath, projectName, targetDir });
