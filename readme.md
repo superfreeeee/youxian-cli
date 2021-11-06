@@ -2,11 +2,16 @@
 
 - author: 幽闲
 
-## 脚手架支持项目类型与目录结构
-
-### 原生前端
+## Usage
 
 ```
-/
-
+$ yarn global add @youxian/cli
+$ yx-cli my-app
 ```
+
+## Templates
+
+- 原生前端：HTML + CSS + JS
+- Web 前端：React + TS
+- 三方库（物料）
+
