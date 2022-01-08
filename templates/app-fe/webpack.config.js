@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
-module.exports = {
+const config = {
   mode: process.env.NODE_ENV,
   entry: path.join(__dirname, 'src/index'),
   output: {
@@ -13,12 +13,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@layouts': path.resolve(__dirname, 'src/layouts'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@hooks': path.resolve(__dirname, 'src/hooks'),
-      '@libs': path.resolve(__dirname, 'src/libs'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@': path.resolve(__dirname, './src/'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
@@ -75,3 +70,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = config;

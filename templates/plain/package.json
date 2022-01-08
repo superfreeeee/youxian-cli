@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --exec 'serve'",
-    "reinstall": "rm -rf node_modules && yarn"
+    "start": "nodemon --exec 'http-server'",
+    "start:yx": "nodemon --exec 'serve'",
+    "reinstall": "yarn clean && yarn install",
+    "clean": "rm -r node_modules || true"
   },
   "dependencies": {},
   "devDependencies": {
     "@youxian/simple-server": "^0.1.1",
+    "http-server": "^14.0.0",
     "nodemon": "^2.0.15"
   }
 }

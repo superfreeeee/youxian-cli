@@ -14,10 +14,12 @@
   "scripts": {
     "test": "cross-env NODE_ENV=development jest",
     "build": "yarn build:es && yarn build:webpack",
-    "build:es": "yarn clear && babel src/ -d lib/ -x .ts && tsc",
+    "build:es": "yarn clean:prod && babel src/ -d lib/ -x .ts && tsc",
     "build:webpack": "cross-env NODE_ENV=production webpack",
-    "reinstall": "rm -rf node_modules && yarn",
-    "clear": "rm -rf lib dist"
+    "reinstall": "yarn clean clean:dep && yarn install",
+    "clean": "rm -r node_modules lib dist || true",
+    "clean:dep": "rm -r node_modules || true",
+    "clean:prod": "rm -r lib || true"
   },
   "directories": {
     "lib": "lib"
