@@ -1,29 +1,47 @@
 const path = require('path');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackBar = require('webpackbar');
 
+const IS_PROD = process.env.NODE_ENV === 'production';
+
+console.log('==================== env ====================');
+console.log({
+  'process.env.NODE_ENV': process.env.NODE_ENV,
+  IS_PROD,
+});
+console.log('=============================================\n');
+
+/**
+ * @type {import('webpack').Configuration}
+ */
 const config = {
-  mode: process.env.NODE_ENV,
+  mode: IS_PROD ? 'production' : 'development',
+
   entry: path.join(__dirname, 'src/index'),
+
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name]-[chunkhash].js',
+    filename: '[name].js',
+    publicPath: '/',
+    clean: true,
   },
+
+  devtool: IS_PROD ? 'source-map' : 'eval-source-map',
+
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src/'),
-    },
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.json'],
   },
+
   module: {
     rules: [
+      // main script loader
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+
+      // style loader
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
@@ -32,42 +50,53 @@ const config = {
         test: /\.module.(sass|scss)$/,
         use: [
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+          IS_PROD
+            ? 'css-loader'
+            : {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  },
+                  sourceMap: true,
+                },
               },
-              sourceMap: true,
-            },
-          },
           'sass-loader',
         ],
       },
+
+      // html template loader
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+      },
     ],
   },
-  devtool: 'source-map',
+
   plugins: [
-    new WebpackBar(),
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React App',
-      template: './public/index.html',
+      template: path.resolve(__dirname, 'public', 'index.hbs'),
+      chunks: ['main'],
       filename: 'index.html',
+      minify: IS_PROD,
+      title: 'Application FE',
     }),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
+
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
+
+  optimization: {
+    usedExports: true,
+    splitChunks: {},
+  },
+
   devServer: {
     port: 3000,
-    open: true,
     historyApiFallback: true,
-    client: {
-      overlay: true,
-    },
+    open: true,
   },
 };
 

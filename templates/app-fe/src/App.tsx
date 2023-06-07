@@ -1,34 +1,10 @@
-import React, { FC } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React from 'react';
 
-const AppRoot = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-`;
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-`;
-
-const App: FC = () => {
+const App = () => {
   return (
-    <AppRoot>
-      <GlobalStyle />
-      <h1>Front-end Application Using React + TS</h1>
-      <div>powered by @youxian/cli</div>
-    </AppRoot>
+    <div>
+      <h1>Hello @youxian/cli</h1>
+    </div>
   );
 };
 
