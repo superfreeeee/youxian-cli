@@ -1,5 +1,5 @@
 [
-  { "name": "原生项目(HTML+CSS+JS)", "value": "plain" },
-  { "name": "前端应用(React+TS+Webpack)", "value": "app-fe" },
-  { "name": "三方库(TS+Babel)", "value": "library" }
+  { "name": "Plain Web Page(HTML+CSS+JS)", "value": "plain" },
+  { "name": "Modern Front-end Application(React+TS+Webpack)", "value": "app-fe" },
+  { "name": "Library(TS+Babel)", "value": "library" }
 ]
