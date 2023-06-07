@@ -13,7 +13,8 @@
     "yx-cli": "bin/yx-cli"
   },
   "scripts": {
-    "reinstall": "rm -rf node_modules && yarn"
+    "reinstall": "rm -rf node_modules && pnpm i",
+    "pub": "node scripts/publish"
   },
   "directories": {
     "bin": "bin",
